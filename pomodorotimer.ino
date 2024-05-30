@@ -23,6 +23,8 @@ void setup() {
   lcd.backlight();
   pinMode(buzzer,OUTPUT);
   pinMode(switch,INPUT_PULLUP);
+  pinMode(gled,OUTPUT);
+  pinMode(bled,OUTPUT);
 }
 void loop() {
     digitalWrite(bled,HIGH);
