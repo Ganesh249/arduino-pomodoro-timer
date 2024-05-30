@@ -1,0 +1,69 @@
+Arduino Pomodoro Timer
+
+This Arduino program is designed to manage a Pomodoro-style timer with study sessions, short breaks, and a long break. It uses an LCD, an LED, and a buzzer to provide visual and auditory feedback.
+
+Include Libraries
+
+The Wire.h library is used for I2C communication, and the LiquidCrystal_I2C.h library controls the LCD.
+
+Global Variables and Constants
+
+LCD: Initializes the LCD with the I2C address 0x27 and a 16x2 display.
+Time Variables: minutes and seconds are used to track time.
+Constants: studytime, breaktime, longbreak, and repeat define the durations and repetitions.
+Pins: buzzer, switch, gled, and bled are defined for the buzzer, button, green LED, and blue LED, respectively.
+
+Setup Function
+
+LCD Initialization: lcd.init() and lcd.begin(16, 2) initialize the LCD, and lcd.backlight() turns on the backlight.
+
+Pin Modes: Sets the buzzer, green and blue LED as an output, and the switch as an input with an internal pull-up resistor.
+
+
+Main Loop
+Idle State: The blue LED (bled) is on, and the LCD prompts the user to press the button.
+Button Press: When the button is pressed (switchval == LOW), the LCD is cleared, a tone is played, and the blue LED blinks (bledblnk()).
+Pomodoro Cycle: The repeat loop runs the study sessions and short breaks. After repeat study sessions and short breaks, a long break is initiated.
+Auditory Feedback: finaltone() plays a series of tones at the end of each session.
+
+Tone Functions
+tone(): Plays a single short tone.
+finaltone(): Plays a sequence of 8 short tones, with the blue LED blinking in sync.
+
+Study, Break, and Long Break Functions
+These functions manage the display and timing for the study session, short and long breaks.
+“studytimefun()”:
+Setup: Turns on the green LED (gled), clears the LCD, and displays "Study Time!".
+Timing Loop: Counts minutes and seconds, updating the LCD each second.
+Completion: Turns off the green LED.
+
+“breaktimefun() and longbreakfun()”:
+These functions are similar to studytimefun(), with different durations and display messages.
+
+
+Blue LED Blink Function
+bledblnk(): Blinks the blue LED 5 times, then waits for 1 second.
+
+Summary
+Initialization: Sets up the LCD, LEDs, buzzer, and button.
+Idle State: Displays a prompt to press the button.
+Button Press: Initiates the Pomodoro cycle with study sessions, breaks, and a long break.
+Timing Functions: Use nested loops to count time and update the display.
+Feedback: Provides visual and auditory feedback using LEDs and the buzzer.
+This program effectively manages study sessions and breaks with clear visual and auditory cues, providing a structured and interactive timing mechanism.
+
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
