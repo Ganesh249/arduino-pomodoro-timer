@@ -87,7 +87,7 @@ void studytimefun(){
         lcd.print("0");
       }
       lcd.print(seconds);
-      delay(10);
+      delay(1000);
       seconds++;
     }
     minutes++;
@@ -114,7 +114,7 @@ void breaktimefun(){
         lcd.print("0");
       }
       lcd.print(seconds);
-      delay(10);
+      delay(1000);
       seconds++;
     }
     minutes++;
@@ -141,7 +141,7 @@ void longbreakfun(){
         lcd.print("0");
       }
       lcd.print(seconds);
-      delay(10);
+      delay(1000);
       seconds++;
     }
     minutes++;
